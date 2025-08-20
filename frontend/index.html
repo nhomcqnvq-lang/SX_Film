@@ -1,11 +1,88 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>sx phim — My Films Only</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    
+  <header class="topbar">
+    <div class="brand">
+      <div class="logo">sx</div>
+      <div class="brand-text">
+        <strong>sx phim</strong>
+        <small>originals only</small>
+      </div>
+    </div>
+    <nav class="nav">
+      <button id="exploreBtn" class="btn-ghost">Khám phá</button>
+      <input id="searchInput" class="search" placeholder="🔎 Tìm phim..." />
+    </nav>
+    <div class="auth-area">
+      <button id="loginBtn" class="btn">Đăng nhập</button>
+      <button id="registerBtn" class="btn btn-ghost">Đăng ký</button>
+    </div>
+  </header>
+
+  <main class="hero">
+    <div class="hero-inner">
+      <h1>sx phim</h1>
+      <p class="muted">Nền tảng chiếu phim <b>chỉ đăng phim của tôi</b> — teaser, short, feature, behind-the-scenes.</p>
+      <div class="hero-cta">
+        <button id="btnExplore" class="btn">Khám phá ngay</button>
+        <button id="uploadBtn" class="btn btn-ghost">+ Tải phim (demo)</button>
+      </div>
+    </div>
+  </main>
+
+  <section class="controls container">
+    <div class="left">
+      <select id="genreSelect"><option value="all">Tất cả thể loại</option></select>
+      <select id="sortSelect">
+        <option value="newest">Mới nhất</option>
+        <option value="rating">Đánh giá cao</option>
+        <option value="duration">Thời lượng dài</option>
+      </select>
+    </div>
+    <div class="right">
+      <div id="memberLine" class="hidden member-line">✨ Đây là dòng bí mật chỉ cho thành viên: <b>sẽ gãy</b> ✨</div>
+    </div>
+  </section>
+
+  <main class="container main-list">
+    <div class="list-head">
+      <h2>Danh sách phim</h2>
+      <div id="countText" class="muted">0 tác phẩm</div>
+    </div>
+    <section id="movieList" class="grid"></section>
+  </main>
+
+  <footer class="site-footer container">
+    <div>© <span id="yearSpan"></span> sx phim</div>
+    <div class="muted">Demo — Backend JWT, admin seed</div>
+  </footer>
+
+  <!-- MODALS -->
+  <div id="modal" class="modal" aria-hidden="true">
+    <div class="modal-card">
+      <button id="modalClose" class="modal-close">✕</button>
+      <div id="modalBody"></div>
+    </div>
+  </div>
+
+  <!-- Trailer modal -->
+  <div id="trailerModal" class="modal" aria-hidden="true">
+    <div class="modal-card">
+      <button id="closeTrailer" class="modal-close">✕</button>
+      <div class="ratio"><iframe id="trailerFrame" src="" allowfullscreen></iframe></div>
+      <div class="modal-info">
+        <h3 id="trailerTitle"></h3>
+        <p id="trailerMeta" class="muted"></p>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js" defer></script>
 </body>
 </html>
